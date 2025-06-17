@@ -3,6 +3,7 @@ package junitTests;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.ConfigReader;
 
 public class GoogleJUnitTest {
 
@@ -11,7 +12,11 @@ public class GoogleJUnitTest {
 
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://pwa-dsspr-int.pwa.intershop.de/en/home");
+        driver.manage().window().maximize();
+
+        String  baseUrl = ConfigReader.getValue("baseUrl");
+
+        driver.get(baseUrl);
         System.out.println("JUnit : Google Opened");
         driver.quit();
 

@@ -3,6 +3,7 @@ package testngTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import utils.ConfigReader;
 
 public class GoogleTestNGTest {
 
@@ -11,7 +12,11 @@ public class GoogleTestNGTest {
 
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://pwa-dsspr-int.pwa.intershop.de/en/home");
+        driver.manage().window().maximize();
+
+        String  baseUrl = ConfigReader.getValue("baseUrl");
+
+        driver.get(baseUrl);
         System.out.println("TestNG: Google Opened");
         driver.quit();
 
